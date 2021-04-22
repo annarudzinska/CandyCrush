@@ -71,10 +71,12 @@ document.addEventListener('DOMContentLoaded', () => {
         sqaureIdBeingReplaced = parseInt(this.id);
         this.style.backgroundImage = colorBeingDragged; // exchanging the colors
         squares[squareIdBeingDragged].style.backgroundImage = colorBeingReplaced; //when we drop a square onto another, the latter gets the color of the one being dragged
+        check();
     }
 
     function dragEnd () {
         console.log (this.id, 'dragend')
+        setInterval(check, 200);
 
         //defining a valid move as we cannot just switch any candy with any candy
 
@@ -93,6 +95,7 @@ document.addEventListener('DOMContentLoaded', () => {
             squares[sqaureIdBeingReplaced].style.backgroundImage = colorBeingReplaced; // if the move is not valid we give the square its original color
             squares[squareIdBeingDragged].style.backgroundImage = colorBeingDragged; //as above
         } else squares[squareIdBeingDragged].style.backgroundImage = colorBeingDragged;
+
     }
 
 
@@ -103,14 +106,15 @@ function moveDown() {
         if (squares[i + width].style.backgroundImage === '') {
             squares[i + width].style.backgroundImage = squares[i].style.backgroundImage;
             squares[i].style.backgroundImage = '';
-            //fill in the empty rows
-            const firstRow = [0, 1, 2, 3, 4, 5, 6, 7];
-            const isFirstRow = firstRow.includes(i)
-            if (isFirstRow && squares[i].style.backgroundImage === '') {
-                let randomColor = Math.floor(Math.random() * candyColors.length);
-                squares[i].style.backgroundImage = candyColors[randomColor];
-            }
         }
+            //fill in the empty rows
+        const firstRow = [0, 1, 2, 3, 4, 5, 6, 7];
+        const isFirstRow = firstRow.includes(i)
+        if (isFirstRow && squares[i].style.backgroundImage === '') {
+            let randomColor = Math.floor(Math.random() * candyColors.length);
+            squares[i].style.backgroundImage = candyColors[randomColor];
+        }
+        
     }
 }
 
@@ -202,14 +206,13 @@ function checkColumnForThree() {
     }
 }
 
-window.setInterval(function() { // FOR LATER: ADD A BUTTON TO ACTIVATE IT (CHECK IN TETRIS) 
-    moveDown()
+let check = function()  { // FOR LATER: ADD A BUTTON TO ACTIVATE IT (CHECK IN TETRIS) 
     checkRowForFour() //checking for four first, as they are more important
     checkColumnForFour()
     checkRowForThree()
-    checkColumnForThree(),
-    100
-})
+    checkColumnForThree()
+    moveDown()
+}
 
 
 })
