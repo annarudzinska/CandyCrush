@@ -102,7 +102,7 @@ document.addEventListener('DOMContentLoaded', () => {
 // drop candies once some have been cleared
 
 function moveDown() {
-    for (i = 0; i < 55; i++) { //checking below every row
+    for (i = 0; i <= 55; i++) { //checking below every row
         if (squares[i + width].style.backgroundImage === '') {
             squares[i + width].style.backgroundImage = squares[i].style.backgroundImage;
             squares[i].style.backgroundImage = '';
@@ -126,7 +126,7 @@ function moveDown() {
 //checking for 4 the same colors in a row
 
 function checkRowForFour() {
-    for (i = 0; i < 60; i++) { //we cannot go over 63
+    for (i = 0; i <= 60; i++) { //we cannot go over 63
         let rowOfFour = [i, i+1, i+2, i+3];
         let decidedColor = squares[i].style.backgroundImage;
         const isBlank = squares[i].style.backgroundImage === ''; //if the square doesn't have a color it is blank
@@ -149,7 +149,7 @@ function checkRowForFour() {
 
 //checking for 4 the same colors in a column
 function checkColumnForFour() {
-    for (i = 0; i < 39; i++) { //we cannot go over 63
+    for (i = 0; i <= 39; i++) { //we cannot go over 63
         let columnOfFour = [i, i + width, i + width * 2, i + width *3];
         let decidedColor = squares[i].style.backgroundImage;
         const isBlank = squares[i].style.backgroundImage === ''; //if the square doesn't have a color it is blank
@@ -168,7 +168,7 @@ function checkColumnForFour() {
 //checking for 3 the same colors in a row
 
 function checkRowForThree() {
-    for (i = 0; i < 61; i++) { //we cannot go over 63
+    for (i = 0; i <= 61; i++) { //we cannot go over 63
         let rowOfThree = [i, i+1, i+2];
         let decidedColor = squares[i].style.backgroundImage;
         const isBlank = squares[i].style.backgroundImage === ''; //if the square doesn't have a color it is blank
@@ -191,7 +191,7 @@ function checkRowForThree() {
 
 //checking for 3 the same colors in a column
 function checkColumnForThree() {
-    for (i = 0; i < 47; i++) { //we cannot go over 63
+    for (i = 0; i <= 47; i++) { //we cannot go over 63
         let columnOfThree = [i, i + width, i + width * 2];
         let decidedColor = squares[i].style.backgroundImage;
         const isBlank = squares[i].style.backgroundImage === ''; //if the square doesn't have a color it is blank
