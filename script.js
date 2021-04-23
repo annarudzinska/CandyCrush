@@ -240,7 +240,6 @@ function checkColumnForThree() {
         if (columnOfThree.every(index => squares[index].style.backgroundImage === decidedColor && !isBlank)) {
             score += 3;
             scoreDisplay.innerHTML = score;
-            console.log(moves);
             columnOfThree.forEach(index => {
                 squares[index].style.backgroundImage = ''; //if we have a match, all three squares become blank
             })
