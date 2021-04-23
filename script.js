@@ -149,7 +149,7 @@ function checkRowForFive() {
 
 //checking for 5 the same colors in a column
 function checkColumnForFive() {
-    for (i = 0; i <= 38; i++) { //we cannot go over 63
+    for (i = 0; i <= 31; i++) { //we cannot go over 63
         let columnOfFive = [i, i + width, i + width * 2, i + width * 3, i + width * 4];
         let decidedColor = squares[i].style.backgroundImage;
         const isBlank = squares[i].style.backgroundImage === ''; //if the square doesn't have a color it is blank
