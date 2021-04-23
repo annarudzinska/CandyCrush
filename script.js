@@ -47,26 +47,21 @@ document.addEventListener('DOMContentLoaded', () => {
     function dragStart () {
         colorBeingDragged = this.style.backgroundImage;
         squareIdBeingDragged = parseInt(this.id); //making sure that Id is being stored as a number
-        console.log(colorBeingDragged);
-        console.log (this.id, 'dragstart')
     }
 
 
     function dragOver (e) {
         e.preventDefault(); //prevents the function from making a default behavior
-        console.log (this.id, 'dragover')
     }
 
     function dragEnter () {
-        console.log (this.id, 'dragenter')
+
     }
 
     function dragLeave () {
-        console.log (this.id, 'dragleave')
     }
 
     function dragDrop () {
-        console.log (this.id, 'drop')
         colorBeingReplaced = this.style.backgroundImage;
         sqaureIdBeingReplaced = parseInt(this.id);
         this.style.backgroundImage = colorBeingDragged; // exchanging the colors
@@ -75,7 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function dragEnd () {
-        console.log (this.id, 'dragend')
         setInterval(check, 200);
 
         //defining a valid move as we cannot just switch any candy with any candy
